@@ -1,0 +1,6 @@
+* Day 1
+** Don't try to return top level declarations, no matter what.
+** Allow optional commas again for another way to group expressions without parens.
+** Expose __c_int and friends
+** Add true and false
+** Fucking bit-shifting sucks because it has to be in ecx

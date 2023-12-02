@@ -1,0 +1,50 @@
+;; BEGIN c.int
+FILE : struct {};
+extern fopen : @FILE(filename : @byte, mode : @byte);
+extern fclose : int(stream : @FILE) discardable; ;; TODO: Expose __c_int, use that for return type
+extern fread : u64(buffer : @byte, size : u64, count : u64, stream : @FILE); ;; TODO: size_t or smth
+
+extern putc : int(char : int, stream : @FILE) discardable; ;; TODO: Expose __c_int, use that
+;; END c.int
+
+extern print_number : void(number : u64);
+
+first_number : byte = 128;
+last_number : byte = 128;
+aggregate : u64 = 0;
+
+f : @FILE = fopen "input.txt"[0] "rb"[0];
+
+if !f then return 1;
+
+buffer : byte;
+
+read : u64 = fread (&buffer) 1 1 f;
+while read do {
+  read := fread (&buffer) 1 1 f;
+  c :: buffer;
+  ;; First number in the line
+  if (first_number = 128) as int & (c >= 48) as int & (c < 58) as int then {
+    first_number := c - 48 as byte;
+  };
+  if (c >= 48) as int & (c < 58) as int then {
+    last_number := c - 48 as byte;
+    if first_number = 128 then first_number := last_number;
+  };
+  ;; Newline
+  if c = 10 then {
+    if (first_number != 128) as int & (last_number != 128) as int then {
+      value :: last_number;
+      value := (value + first_number * 10) as byte;
+      aggregate := aggregate + value;
+      first_number := 128;
+      last_number := 128;
+    };
+  };
+};
+
+fclose f;
+
+print_number aggregate;
+
+0;
