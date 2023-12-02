@@ -1,7 +1,8 @@
 * Day 1
-** Don't try to return top level declarations, no matter what.
-** Allow optional commas again for another way to group expressions without parens.
+** Don't try to return top level declarations, no matter what
+** Allow optional commas again for another way to group expressions without parens
 ** Expose __c_int and friends
 ** Add true and false
 ** Fucking bit-shifting sucks because it has to be in ecx
 ** Fucking division sucks because result is always in rdx:rax or whatever
+** There isn't logical &&, ||, etc. Big problem! Can't even fake with comparisons without true and false, lol
