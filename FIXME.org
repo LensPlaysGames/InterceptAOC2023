@@ -4,3 +4,4 @@
 ** Expose __c_int and friends
 ** Add true and false
 ** Fucking bit-shifting sucks because it has to be in ecx
+** Fucking division sucks because result is always in rdx:rax or whatever
