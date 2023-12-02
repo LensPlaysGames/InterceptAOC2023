@@ -3,6 +3,7 @@
 ** Allow optional commas again for another way to group expressions without parens
 ** Expose __c_int and friends
 ** Add true and false
+DONE [2023-12-01 Fri 18:41]
 ** Fucking bit-shifting sucks because it has to be in ecx
 ** Fucking division sucks because result is always in rdx:rax or whatever
 ** There isn't logical &&, ||, etc. Big problem! Can't even fake with comparisons without true and false, lol
