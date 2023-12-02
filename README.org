@@ -1,0 +1,9 @@
+* Intercept Advent of Code
+
+My stupid hobby language Intercept still can barely function, so I'm forcing myself to make it make sense by actually using the fucker.
+
+I will not be doing all 25 days.
+
+I will not be doing any of the days on time.
+
+Requires a working C compiler, CMake, and [[https://github.com/LensPlaysGames/LensorCompilerCollection][LCC (Lensor Compiler Collection)]].
